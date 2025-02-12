@@ -11,8 +11,8 @@ base_hea = {
 
 @app.route("/")
 def main():
-    req = get(base_url, headers=base_hea, verify=False)
-    return req
+    resp = get(base_url, headers=base_hea, verify=False)
+    return resp.raw.read(), resp.status_code, resp.headers.items()
 
 @app.route('/how are you')
 def hello():
